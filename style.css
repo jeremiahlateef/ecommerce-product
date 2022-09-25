@@ -1,0 +1,157 @@
+:root {
+  --clr-primary-1: hsl(26, 100%, 55%);
+  --clr-primary-2: hsl(25, 100%, 94%);
+  --clr-primary-3: hsl(220, 14%, 75%);
+  --clr-primary-4: hsl(223, 64%, 98%);
+  --clr-primary-5: hsl(220, 13%, 13%);
+  --clr-primary-6: hsl(219, 9%, 45%);
+  --clr--white: hsl(0, 0%, 100%);
+  --clr--black: hsl(0, 0%, 0%);
+  --clr--black-opacity: rgba(0, 0, 0, 0.75);
+  --ff-primary: "Overpass", sans-serif;
+  --transition: all 0.25s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li,
+a {
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  overflow-x: hidden;
+}
+.nav-center,
+.nav-link,
+.nav-header-one,
+.nav-header-two,
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-center {
+  margin: 0 1.5rem;
+  height: 4rem;
+}
+.nav-links {
+  display: none;
+}
+.nav-header-two {
+  gap: 3rem;
+}
+.nav-header-one {
+  gap: 3rem;
+}
+.logo-container {
+  gap: 1rem;
+}
+.nav-link {
+  gap: 1.5rem;
+}
+
+.links {
+  color: var(--clr-primary-6);
+  text-transform: capitalize;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
+  padding: 2rem 0;
+}
+.links:hover {
+  color: var(--clr-primary-5);
+  border-bottom: 2px solid var(--clr-primary-1);
+}
+.user-cont {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+.user {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.user-cont:hover {
+  border: 2px solid var(--clr-primary-1);
+}
+.hamburger,
+.cart,
+.user {
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+  .hamburger {
+    display: none;
+  }
+  .nav-center {
+    border-bottom: 2px solid var(--clr-primary-4);
+  }
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+/* aside */
+.side-links {
+  position: fixed;
+  /* background: var(--clr--white); */
+  background: goldenrod;
+  top: 0;
+  left: 0;
+  width: 60%;
+  z-index: 200;
+  min-height: 100%;
+  padding: 1.5rem;
+  transform: translate(0%);
+}
+.side-link {
+  display: grid;
+  margin-top: 2.5rem;
+}
+.sidebar-close {
+  transform: translate(100%);
+}
+.aside-links {
+  color: var(--clr--black);
+  text-transform: capitalize;
+  padding-bottom: 1.5rem;
+  font-weight: 700;
+}
+.close-button {
+  cursor: pointer;
+}
+/* overlay*/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--clr--black-opacity);
+  backdrop-filter: blur(1px);
+  z-index: 100;
+  cursor: pointer;
+}
+.remove-overlay {
+  visibility: hidden;
+  opacity: 0;
+}
