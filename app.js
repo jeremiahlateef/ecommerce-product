@@ -54,3 +54,5 @@ leftButton.addEventListener("click", function () {
   counter--;
   slideButton();
 });
+
+// slider functionality (desktop)
