@@ -7,6 +7,15 @@ const hamburger = document.querySelector(".hamburger");
 const product = document.querySelectorAll(".product-container");
 const leftButton = document.querySelector(".slide-button-one");
 const rightButton = document.querySelector(".slide-button-two");
+const cartImage = document.querySelector(".cart-container");
+const notification = document.querySelector(".notification-cont");
+const decreaseCounter = document.querySelector(".minus");
+const increaseCounter = document.querySelector(".add");
+const counterValue = document.querySelector(".counter-number");
+const itemAlert = document.querySelector(".item");
+const checkout = document.querySelector(".item");
+const addItem = document.querySelector(".add-cart");
+const emptyContent = document.querySelector(".empty-content");
 
 // close-button function
 const closeMenu = function () {
@@ -56,3 +65,103 @@ leftButton.addEventListener("click", function () {
 });
 
 // slider functionality (desktop)
+
+// cart functionality
+// open cart
+cartImage.addEventListener("click", function () {
+  notification.classList.toggle("empty-cart");
+  // displayAlert("Item added to cart", "add");
+});
+
+// alert functionality
+function displayAlert(content, action) {
+  itemAlert.textContent = content;
+  itemAlert.classList.add(`item-${action}`);
+
+  setTimeout(() => {
+    itemAlert.textContent = "";
+    itemAlert.classList.add(`item-${action}`);
+  }, 1000);
+}
+
+// counter functionality
+// counter functionality
+
+function counterNumber(cart) {
+  let cartCounter = 0;
+
+  increaseCounter.addEventListener("click", function (e) {
+    if (e.target) {
+      cartCounter++;
+      counterValue.textContent = `${cartCounter}`;
+    }
+  });
+  decreaseCounter.addEventListener("click", function (e) {
+    if (e.target && cartCounter >= 1) {
+      cartCounter--;
+      counterValue.textContent = `${cartCounter}`;
+    }
+  });
+  cart = cartCounter;
+}
+
+// Add item functionality
+function createCartContent() {
+  // counterNumber(number);
+  const addContent = `
+ <div class="notify-big-container">
+          <div class="notify-content">
+            <div class="notify-div">
+              <div class="notify-image">
+                <img
+                  src="./images/image-product-1-thumbnail.jpg"
+                  alt=""
+                  class="notify-thumb"
+                />
+              </div>
+              <div class="notify-info">
+                <p>Autumn limited edition...</p>
+                <p>
+                  $125.00 x <span class="cart-number">$</span>
+                  <span class="cart-total">$</span>
+                </p>
+              </div>
+            </div>
+            <div class="delete-cont">
+              <img src="./images/icon-delete.svg" alt="" class="delete" />
+            </div>
+          </div>
+          <button class="checkout">Checkout</button>
+        </div>
+`;
+
+  emptyContent.classList.add("empty-cart");
+  notification.insertAdjacentHTML("beforeend", addContent);
+  displayAlert("Item has been added to cart", "add");
+  const deleteItem = document.querySelector(".delete-cont");
+  const notifyCont = document.querySelector(".notify-big-container");
+  deleteItem.addEventListener("click", function () {
+    deleteCartContent();
+    console.log("here");
+  });
+}
+
+// Event Lsteners
+window.addEventListener("DOMContentLoaded", function () {
+  counterNumber();
+  createCartContent;
+  // Remove item functionality
+
+  deleteCartContent;
+});
+
+function deleteCartContent() {
+  // notification.classList.add("empty-cart");
+  emptyContent.classList.remove("empty-cart");
+  displayAlert("Item has been removed from cart", "remove");
+  const lastChild = notification.lastElementChild;
+  lastChild.classList.add("empty-cart");
+  console.log(lastChild);
+}
+
+addItem.addEventListener("click", createCartContent);
