@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 :root {
   --clr-primary-1: hsl(26, 100%, 55%);
   --clr-primary-2: hsl(25, 95%, 70%);
@@ -10,7 +11,7 @@
   --clr--white: hsl(0, 0%, 100%);
   --clr--black: hsl(0, 0%, 0%);
   --clr--black-opacity: rgba(0, 0, 0, 0.75);
-  --ff-primary: "Overpass", sans-serif;
+  --ff-primary: "Kumbh Sans", sans-serif;
   --transition: all 0.25s linear;
   --spacing: 0.25rem;
   --radius: 0.5rem;
@@ -29,6 +30,15 @@ li,
 a {
   text-decoration: none;
   list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+li {
+  font-family: var(--ff-primary);
 }
 body {
   overflow-x: hidden;
@@ -72,7 +82,7 @@ body {
   text-transform: capitalize;
   transition: var(--transition);
   border-bottom: 2px solid transparent;
-  padding: 2rem 0;
+  padding: 1.65rem 0;
 }
 .links:hover {
   color: var(--clr-primary-5);
@@ -108,9 +118,15 @@ body {
   .nav-center {
     border-bottom: 2px solid var(--clr-primary-4);
   }
+  .navbar,
+  .main-content {
+    max-width: 1366px;
+    margin: 0 auto;
+  }
 }
 .cart-container {
   position: relative;
+  cursor: pointer;
 }
 .cart-info {
   position: absolute;
@@ -134,7 +150,7 @@ body {
   bottom: -2rem;
   left: 50%;
   transform: translate(-50%);
-  z-index: 10;
+  z-index: 50;
 }
 .item-add {
   color: #155724;
@@ -153,31 +169,62 @@ body {
   position: relative;
   height: 40vh;
 }
+/* Notfication container */
 .notification-cont {
   z-index: 20;
   background: #fff;
-  min-width: 97vw;
+  width: 96.5%;
   margin: 0.5rem;
   border-radius: 0.5rem;
-  height: 16rem;
+  height: auto;
   position: absolute;
-  top: 0;
+  top: 4rem;
+  box-shadow: var(--dark-shadow);
+}
+@media screen and (min-width: 768px) {
+  .notification-cont {
+    width: 25rem;
+    right: 0rem;
+  }
 }
 .notify-title {
   color: var(--clr-primary-5);
-  margin: 1.5rem;
+  padding: 1rem;
+  border-bottom: 2px solid var(--clr-primary-4);
 }
 .notify-content {
   display: flex;
-  border-top: 2px solid var(--clr-primary-4);
   width: 100%;
   padding: 1.5rem;
   gap: 1rem;
   align-items: center;
+  justify-content: space-between;
+}
+.notify-big-container {
+  display: grid;
+  margin-bottom: 1rem;
+}
+
+.empty-content {
+  display: grid;
+  place-items: center;
+  height: 10rem;
+}
+.empty-text {
+  color: var(--clr-primary-6);
+  font-weight: 700;
+}
+.empty-cart {
+  display: none;
+}
+.notify-div {
+  align-items: center;
+  gap: 1rem;
+  display: flex;
 }
 .notify-image {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
 }
 .notify-thumb {
   width: 100%;
@@ -186,6 +233,7 @@ body {
 }
 .notify-info {
   color: var(--clr-primary-3);
+  text-transform: capitalize;
 }
 .checkout {
   width: 90%;
@@ -200,6 +248,9 @@ body {
   cursor: pointer;
   border: none;
   color: #fff;
+}
+.delete-cont {
+  cursor: pointer;
 }
 .checkout:hover {
   background: var(--clr-primary-2);
