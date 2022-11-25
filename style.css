@@ -164,11 +164,12 @@ body {
 /* Main */
 .main-content {
   background: var(--clr--white);
-  min-height: calc(100vh - 4rem);
+  height: auto;
 }
 .product-cont {
   position: relative;
   height: 40vh;
+  overflow-x: hidden;
 }
 /* Notfication container */
 .notification-cont {
@@ -183,6 +184,9 @@ body {
   box-shadow: var(--dark-shadow);
 }
 @media screen and (min-width: 768px) {
+  .main-content {
+    height: calc(100vh - 4rem);
+  }
   .notification-cont {
     width: 25rem;
     right: 0rem;
