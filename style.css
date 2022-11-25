@@ -168,8 +168,9 @@ body {
 }
 .product-cont {
   position: relative;
-  height: 40vh;
+  min-height: 40vh;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 /* Notfication container */
 .notification-cont {
