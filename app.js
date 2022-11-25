@@ -142,9 +142,10 @@ function createCartContent() {
           <button class="checkout">Checkout</button>
         </div>
 `;
+  emptyContent.classList.add("empty-cart");
+
   // counterNumber(number);
   notification.insertAdjacentHTML("beforeend", addContent);
-  emptyContent.classList.add("empty-cart");
 
   displayAlert("Item has been added to cart", "add");
   const deleteItem = document.querySelector(".delete-cont");
@@ -153,28 +154,37 @@ function createCartContent() {
   deleteItem.addEventListener("click", function () {
     deleteCartContent();
   });
-
-  // deleteItem;
-
-  function deleteCartContent() {
-    // notification.classList.add("empty-cart");
-    emptyContent.classList.remove("empty-cart");
-    displayAlert("Item has been removed from cart", "remove");
-    const lastChild = notification.lastElementChild;
-    lastChild.classList.add("empty-cart");
-    console.log(lastChild);
-    cartInfo.style.display = "none";
-  }
 }
-createCartContent;
+
+// deleteItem;
+
 function cartText() {
   cartInfo.style.display = "block";
   cartInfo.textContent = "1";
 }
 // Event Lsteners
-window.addEventListener("DOMContentLoad", function () {
+window.addEventListener("DOMContentLoaded", function () {
   counterNumber();
+  createCart();
+  createCartContent;
+  // if (!notification.hasAttribute("div")) {
+  //   createCartContent;
+  // } else {
+  //   deleteCartContent;
+  // }
+
+  // Remove item functionality
 });
+
+function deleteCartContent() {
+  // notification.classList.add("empty-cart");
+  emptyContent.classList.remove("empty-cart");
+  displayAlert("Item has been removed from cart", "remove");
+  const lastChild = notification.lastElementChild;
+  lastChild.classList.add("empty-cart");
+  console.log(lastChild);
+  cartInfo.style.display = "none";
+}
 
 addItem.addEventListener("click", createCartContent);
 
