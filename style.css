@@ -140,6 +140,7 @@ body {
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
+  display: none;
 }
 .item {
   text-align: center;
@@ -372,7 +373,7 @@ body {
 .product-cont-desktop {
   display: none;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 820px) {
   .main-center {
     display: flex;
     justify-content: center;
@@ -434,6 +435,8 @@ body {
     width: 6rem;
     border-radius: 0.5rem;
     transition: var(--transition);
+    background: white;
+
     /* background: r; */
   }
   .thumb {
@@ -441,10 +444,14 @@ body {
     display: block;
     width: 100%;
     border-radius: 0.5rem;
+    cursor: pointer;
   }
   .thumb-cont:hover {
+    opacity: 25%;
+  }
+  .thumbBorder {
     border: 2px solid var(--clr-primary-1);
-    opacity: 40%;
+    opacity: 25%;
   }
 }
 /* Footer */
