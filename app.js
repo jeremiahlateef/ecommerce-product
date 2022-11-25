@@ -16,6 +16,10 @@ const itemAlert = document.querySelector(".item");
 const checkout = document.querySelector(".item");
 const addItem = document.querySelector(".add-cart");
 const emptyContent = document.querySelector(".empty-content");
+const thumbnails = document.querySelectorAll(".thumb");
+const thumbnailCont = document.querySelector(".thumbnail-container");
+const sliderCont = document.querySelector(".product-cont");
+const cartInfo = document.querySelector(".cart-info");
 
 // close-button function
 const closeMenu = function () {
@@ -97,7 +101,7 @@ function counterNumber(cart) {
     }
   });
   decreaseCounter.addEventListener("click", function (e) {
-    if (e.target && cartCounter >= 1) {
+    if (e.target && cartCounter >= 2) {
       cartCounter--;
       counterValue.textContent = `${cartCounter}`;
     }
@@ -106,8 +110,12 @@ function counterNumber(cart) {
 }
 
 // Add item functionality
+function sliderImages() {
+  const sliders = ``;
+}
+
+function createCart() {}
 function createCartContent() {
-  // counterNumber(number);
   const addContent = `
  <div class="notify-big-container">
           <div class="notify-content">
@@ -134,34 +142,57 @@ function createCartContent() {
           <button class="checkout">Checkout</button>
         </div>
 `;
-
-  emptyContent.classList.add("empty-cart");
+  // counterNumber(number);
   notification.insertAdjacentHTML("beforeend", addContent);
+  emptyContent.classList.add("empty-cart");
+
   displayAlert("Item has been added to cart", "add");
   const deleteItem = document.querySelector(".delete-cont");
   const notifyCont = document.querySelector(".notify-big-container");
+  cartText();
   deleteItem.addEventListener("click", function () {
     deleteCartContent();
-    console.log("here");
   });
+
+  // deleteItem;
+
+  function deleteCartContent() {
+    // notification.classList.add("empty-cart");
+    emptyContent.classList.remove("empty-cart");
+    displayAlert("Item has been removed from cart", "remove");
+    const lastChild = notification.lastElementChild;
+    lastChild.classList.add("empty-cart");
+    console.log(lastChild);
+    cartInfo.style.display = "none";
+  }
 }
-
+createCartContent;
+function cartText() {
+  cartInfo.style.display = "block";
+  cartInfo.textContent = "1";
+}
 // Event Lsteners
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoad", function () {
   counterNumber();
-  createCartContent;
-  // Remove item functionality
-
-  deleteCartContent;
 });
 
-function deleteCartContent() {
-  // notification.classList.add("empty-cart");
-  emptyContent.classList.remove("empty-cart");
-  displayAlert("Item has been removed from cart", "remove");
-  const lastChild = notification.lastElementChild;
-  lastChild.classList.add("empty-cart");
-  console.log(lastChild);
+addItem.addEventListener("click", createCartContent);
+
+// desktop container functionaliity
+let clickNum = 0;
+
+function overlayFunction() {
+  overlay.classList.remove("remove-overlay");
+  thumbnailCont.style.zIndex = "500";
+  sliderCont.style.display = "none";
 }
 
-addItem.addEventListener("click", createCartContent);
+thumbnails.forEach((items, index) => {
+  items.addEventListener("click", function () {
+    thumbnails[clickNum].classList.remove("thumbBorder");
+
+    items.classList.add("thumbBorder");
+    clickNum = index;
+    overlayFunction();
+  });
+});
