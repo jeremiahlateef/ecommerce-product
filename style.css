@@ -144,22 +144,24 @@ body {
 }
 .item {
   text-align: center;
-  width: 10rem;
+  min-width: 60%;
   margin: 0 auto;
   border-radius: 0.25rem;
   position: absolute;
-  bottom: -2rem;
+  bottom: -2.15rem;
   left: 50%;
   transform: translate(-50%);
   z-index: 50;
+  padding: 0.5rem 1rem;
+}
+
+.item-remove {
+  color: #721c24;
+  background: #f8d7da;
 }
 .item-add {
   color: #155724;
   background: #d4edda;
-}
-.item-remove {
-  color: #721c24;
-  background: #f8d7da;
 }
 /* Main */
 .main-content {
@@ -191,6 +193,9 @@ body {
   .notification-cont {
     width: 25rem;
     right: 0rem;
+  }
+  .item {
+    min-width: 15rem;
   }
 }
 .notify-title {
@@ -364,6 +369,7 @@ body {
   box-shadow: var(--light-shadow);
   transition: var(--transition);
   cursor: pointer;
+  border: none;
 }
 .add-cart:hover {
   background: var(--clr-primary-2);
@@ -458,15 +464,11 @@ body {
     border: 2px solid var(--clr-primary-1);
     opacity: 25%;
   }
+  .attribution {
+    font-size: 1.5rem;
+  }
 }
-/* Footer */
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
-}
+
 /* aside */
 .side-links {
   position: fixed;
@@ -511,4 +513,13 @@ body {
 .remove-overlay {
   visibility: hidden;
   opacity: 0;
+}
+
+/* Footer */
+.attribution {
+  text-align: center;
+  font-size: 1rem;
+}
+.attribution a {
+  color: var(--clr-primary-1);
 }
