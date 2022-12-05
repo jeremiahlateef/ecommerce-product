@@ -67,6 +67,7 @@ body {
 .nav-header-two {
   gap: 3rem;
 }
+
 .nav-header-one {
   gap: 3rem;
 }
@@ -127,6 +128,14 @@ body {
 .cart-container {
   position: relative;
   cursor: pointer;
+}
+@media screen and (max-width: 320px) {
+  .nav-header-two {
+    gap: 2rem;
+  }
+  .cart {
+    padding-left: 1rem;
+  }
 }
 .cart-info {
   position: absolute;
