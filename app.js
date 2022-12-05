@@ -147,7 +147,7 @@ function cartCounterAndNumber(numbers) {
 }
 // create cart content
 function createCartContent() {
-  if ((counterValue.textContent = 0)) {
+  if (counterValue.textContent <= 0) {
     displayAlert("Select the number of item you want", "remove");
   } else {
     emptyContent.classList.add("empty-cart");
