@@ -96,9 +96,12 @@ function displayAlert(content, action) {
 // counter functionality
 // counter functionality
 
+let cartCounter = 0;
+// reset counter
+function counters(cart) {
+  cartCounter = cart;
+}
 function counterNumber() {
-  let cartCounter = 1;
-
   increaseCounter.addEventListener("click", function (e) {
     if (e.target) {
       cartCounter++;
@@ -107,7 +110,7 @@ function counterNumber() {
     }
   });
   decreaseCounter.addEventListener("click", function (e) {
-    if (e.target && cartCounter >= 2) {
+    if (e.target && cartCounter >= 1) {
       cartCounter--;
       cartNumber(cartCounter);
 
@@ -115,9 +118,9 @@ function counterNumber() {
     }
   });
 }
+
 counterNumber();
-function cartNumber(value = 1) {
-  console.log(value);
+function cartNumber(value = 0) {
   number.textContent = value;
   total.textContent = `$${value * 125}`;
 }
@@ -128,36 +131,52 @@ function cartText() {
   cartInfo.textContent = "1";
 }
 
-function createCartContent() {
-  emptyContent.classList.add("empty-cart");
-  notify.classList.remove("empty-cart");
-  displayAlert("Item has been added to cart", "add");
+// refractor
+function cartCounterAndNumber(numbers) {
+  function cartNumber(numbs = 0) {
+    number.textContent = numbs;
+    total.textContent = `$${numbs * 125}`;
+  }
+  function counters(cart) {
+    cartCounter = cart;
+  }
 
-  cartText();
+  counterValue.textContent = numbers;
+  counters(numbers);
+  cartNumber(numbers);
 }
-
-// deleteItem;
-deleteItem.addEventListener("click", function () {
-  deleteCartContent();
-});
+// create cart content
+function createCartContent() {
+  if ((counterValue.textContent = 0)) {
+    displayAlert("Select the number of item you want", "remove");
+  } else {
+    emptyContent.classList.add("empty-cart");
+    notify.classList.remove("empty-cart");
+    displayAlert("Item has been added to cart", "add");
+    cartText();
+  }
+}
+addItem.addEventListener("click", createCartContent);
 
 function deleteCartContent() {
   // notification.classList.add("empty-cart");
   emptyContent.classList.remove("empty-cart");
   displayAlert("Item has been removed from cart", "remove");
   notify.classList.add("empty-cart");
-
   cartInfo.style.display = "none";
+  cartCounterAndNumber(0);
 }
+// deleteItem;
+deleteItem.addEventListener("click", deleteCartContent);
 
-addItem.addEventListener("click", createCartContent);
-
+// checkout functionality
 function checkoutOrder() {
   notify.classList.add("empty-cart");
   notification.classList.toggle("empty-cart");
   cartInfo.style.display = "none";
-  displayAlert("Success!", "add");
+  displayAlert("Success! Your order has been recieved", "add");
   emptyContent.classList.remove("empty-cart");
+  cartCounterAndNumber(0);
 }
 checkout.addEventListener("click", checkoutOrder);
 
