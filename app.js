@@ -90,7 +90,7 @@ function displayAlert(content, action) {
   setTimeout(() => {
     itemAlert.style.display = "none";
     itemAlert.classList.remove(`item-${action}`);
-  }, 1000);
+  }, 1500);
 }
 
 // counter functionality
