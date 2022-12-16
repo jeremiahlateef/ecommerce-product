@@ -109,7 +109,7 @@ body {
   cursor: pointer;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 920px) {
   .nav-links {
     display: flex;
   }
@@ -195,7 +195,7 @@ body {
   top: 4rem;
   box-shadow: var(--dark-shadow);
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 920px) {
   .main-content {
     height: calc(100vh - 4rem);
   }
@@ -393,7 +393,7 @@ body {
 .product-cont-desktop {
   display: none;
 }
-@media screen and (min-width: 820px) {
+@media screen and (min-width: 920px) {
   .main-center {
     display: flex;
     justify-content: center;
